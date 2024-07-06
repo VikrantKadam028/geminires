@@ -1,28 +1,3 @@
-<?php
-session_start();
-include "config.php";
-
-
-$email = $_SESSION['email'];
-
-$sql = "SELECT username,srno FROM signin WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
-  $username = $row['username'];
-  $srno = $row['srno'];
-} else {
-  $username = 'Guest';
-}
-
-
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -700,7 +675,7 @@ if ($result->num_rows > 0) {
     <div class="chatWindow">
       <div class="startContent">
         <h1>
-          <span class="brandHello">Hello, <?php echo $username ?></span><br /><span class="brandQuestion">How can I help you today?</span>
+          <span class="brandHello">Hello, VikrantK</span><br /><span class="brandQuestion">How can I help you today?</span>
         </h1>
         <br />
         <ul></ul>
